@@ -1,6 +1,7 @@
-<h1>Inline edit widget</h1>
+<h2>Inline Edit React component</h2>
 <p>Displays value. On clik opens the value in text box for editing. Suports format and value validation</p>
-<p>Look at <a href="demo.html">Demo sample</a></p>
+<p>Too see usage look at <a href="demo.js">Demo sample</a></p>
+<p>If you checkout, you can open static <a href="demo.html">Demo html page</a> to see example in action</p>
 <p>Basically, component has 2 modes <em>'display'</em> in which values is only displayed (can be also formatted),
 and <em>edit</em>, when value can be edited in textbox.</p>
 <h3>TODO</h3>
