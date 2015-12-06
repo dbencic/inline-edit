@@ -1,6 +1,6 @@
-import InlineEdit from "./index";
+import InlineEdit, {intParser, floatParser, emailParser} from "./index";
 import React from "react";
-import {intParser, floatParser, emailParser} from "./valueParsers";
+import numeral from "numeral";
 
 var widget = <div>
 	<h3>Integer</h3>
@@ -8,7 +8,8 @@ var widget = <div>
 		onChange={(value)=>console.log("new int value is: " + value)}/>
 	<h3>Float</h3>
 	<InlineEdit value="10.00" valueParser={floatParser}
-		onChange={(value)=>console.log("new int value is: " + value)}/>
+		onChange={(value)=>console.log("new int value is: " + value)}
+		displayFormat={(value)=>numeral(value).format("0,0.00")}/>
 	<h3>Email</h3>
 	<InlineEdit value="me@email.com" valueParser={emailParser}
 		onChange={(value)=>console.log("new int value is: " + value)}/>
