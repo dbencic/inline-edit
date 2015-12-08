@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import numeral from "numeral";
 
 class InlineEdit extends Component {
 
@@ -17,9 +16,10 @@ class InlineEdit extends Component {
 	}
 
 	render() {
+		let styles = (this.props.displayModeClassName)?{className: this.props.displayModeClassName}:{};
 		let showEditor = this.state.edit || this.state.error;
 		if (!showEditor) {
-			return <a href="javascript:" className="btn btn-default" onClick={()=>this.editValueClicked()}>
+			return <a href="javascript:" {...styles} onClick={()=>this.editValueClicked()}>
 				{(this.props.displayFormat)?this.props.displayFormat(this.state.value):this.state.value}</a>;
 		}else {
 			return this.getEditWidget(); 
@@ -27,11 +27,12 @@ class InlineEdit extends Component {
 	}
 
 	getEditWidget() {
+		let styles = (this.props.editModeClassName)?{className: this.props.editModeClassName}:{};
 		let inputClassName = "value-edit-text-input";
 		if (this.state.error) {
 			inputClassName += " error";
 		}
-		return <span><input type="text" ref="texbox" className={inputClassName} size="9"
+		return <span {...styles}><input type="text" ref="texbox" className={inputClassName}
 			autoFocus="true" value={this.state.value} onChange={(e)=>this.onChangeEventHandler(e)} 
 			onBlur={(event)=>this.editorBlured(event)} onKeyDown={(e)=>this.onKeyDownRoutine(e)}/>{" "}
 			<big>{this.getEditIcon()}</big>
@@ -43,8 +44,7 @@ class InlineEdit extends Component {
 		if (this.state.error) {
 			iconClassName = "glyphicon glyphicon-remove-circle text-danger";
 		}
-		let icon = <i className={iconClassName} ariaHidden="true" onClick={()=>this.iconClicked()}
-			alt={this.props.errorMessage} />;
+		let icon = <i className={iconClassName} ariaHidden="true" onClick={()=>this.iconClicked()} />;
 		return icon;
 	}
 
@@ -101,7 +101,8 @@ InlineEdit.propTypes = {
 	onChange : React.PropTypes.func.isRequired,
 	valueParser: React.PropTypes.func.isRequired,
 	displayFormat: React.PropTypes.func,
-	errorMessage: React.PropTypes.string
+	displayModeClassName: React.PropTypes.string,
+	editModeClassName: React.PropTypes.string
 }
 
 export default InlineEdit;

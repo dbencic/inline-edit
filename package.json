@@ -1,6 +1,6 @@
 {
   "name": "inline-edit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React inline edit component able to check format and parse value",
   "main": "index.js",
   "scripts": {

@@ -6,7 +6,7 @@
  */
 
 let floatCheckRegex = /^[+]?\d*[\.,]?[\d]+$/;
-let intCheckRegex = /^[0-9]+$/;
+let intCheckRegex = /^[+,-]?[0-9]+$/;
 let emailRegex=/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i;
 
 function floatParser(value) {
@@ -19,8 +19,8 @@ function floatParser(value) {
 
 function intParser(value) {
 	value = value.trim();
-	let num = value.match(intCheckRegex);//if there is no match result is null
-	if (!num) return null;
+	if (value === "0") return 0;
+	if (!intCheckRegex.test(value)) return null;
 	return parseInt(value);
 }
 
@@ -30,7 +30,11 @@ function emailParser(value) {
 	return value;
 }
 
-export {floatParser, intParser, emailParser};
+function genericParser(value) {
+	return value;
+}
+
+export {floatParser, intParser, emailParser, genericParser};
 //by default does nothing
 export default function(value) {
 	return value;

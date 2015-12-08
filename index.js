@@ -1,5 +1,5 @@
 import InlineEdit from "./src/inline-edit";
-import {intParser, floatParser, emailParser} from "./src/valueParsers";
+import {intParser, floatParser, emailParser, genericParser} from "./src/valueParsers";
 
 export default InlineEdit;
-export {intParser, floatParser, emailParser};
+export {intParser, floatParser, emailParser, genericParser};
