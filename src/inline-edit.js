@@ -18,9 +18,9 @@ class InlineEdit extends Component {
 	render() {
 		let styles = (this.props.displayModeClassName)?{className: this.props.displayModeClassName}:{};
 		let showEditor = this.state.edit || this.state.error;
+		let displayValue = (this.props.displayFormat)?this.props.displayFormat(this.state.value):this.state.value;
 		if (!showEditor) {
-			return <a href="javascript:" {...styles} onClick={()=>this.editValueClicked()}>
-				{(this.props.displayFormat)?this.props.displayFormat(this.state.value):this.state.value}</a>;
+			return <a href="javascript:" {...styles} onClick={()=>this.editValueClicked()}>{displayValue}</a>;
 		}else {
 			return this.getEditWidget(); 
 		}
@@ -78,7 +78,8 @@ class InlineEdit extends Component {
 	 */
 	onChangeEventHandler(event) {
 		let value = event.target.value;
-		this.setState({value: value, error: !this.getValue(value)});
+		let error = this.getValue(value) === null;
+		this.setState({value: value, error: error});
 	}
 
 	editorBlured(event) {
@@ -90,7 +91,7 @@ class InlineEdit extends Component {
 	}
 
 	editingFinished(value) {
-		if (!value) return;
+		if (value === null) return;
 		this.setState({edit: false, value: value});
 		this.props.onChange(value);
 	}

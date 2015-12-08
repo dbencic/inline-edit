@@ -19,7 +19,6 @@ function floatParser(value) {
 
 function intParser(value) {
 	value = value.trim();
-	if (value === "0") return 0;
 	if (!intCheckRegex.test(value)) return null;
 	return parseInt(value);
 }
