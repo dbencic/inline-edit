@@ -28,7 +28,7 @@ class InlineEdit extends Component {
 
 	getEditWidget() {
 		let styles = (this.props.editModeClassName)?{className: this.props.editModeClassName}:{};
-		let inputClassName = "value-edit-text-input";
+		let inputClassName = "inline-edit-text-input";
 		if (this.state.error) {
 			inputClassName += " error";
 		}
