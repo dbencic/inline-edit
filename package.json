@@ -1,12 +1,13 @@
 {
   "name": "inline-edit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React inline edit component able to check format and parse value",
   "main": "index.js",
   "scripts": {
     "watch:demo": "watchify demo.js -o dist/demo.dev.js -dv",
     "build:demo": "browserify demo.js -o dist/demo.dev.js"
   },
+  "style": "style.css",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dbencic/inline-edit.git"
