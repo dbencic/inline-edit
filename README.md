@@ -1,13 +1,18 @@
-<h2>Inline Edit React component</h2>
-<p>Displays value. On clik opens the value in text box for editing. Suports format and value validation</p>
-<p>Too see usage look at <a href="demo.js">Demo sample</a></p>
-<p>If you checkout, you can open static <a href="demo.html">Demo html page</a> to see example in action</p>
-<p>Basically, component has 2 modes <em>'display'</em> in which values is only displayed (can be also formatted),
-and <em>edit</em>, when value can be edited in textbox.</p>
-<p>
-It is also possible to style the component in both modes by providing <em>displayModeClassName</em> and <em>editModeClassName</em>
-</p>
-<h3>TODO</h3>
-<ul>
-<li>Display some error message in case of wrong format?</li>
-</ul>
+#Inline Edit React component
+Component displays value, but when clicked opens the value in text box for editing. Suports format and value validation.
+
+```
+#!jsx
+import InlineEdit, {intParser, floatParser, emailParser, genericParser} from "./index";
+<InlineEdit value="10.00" valueParser={floatParser} displayModeClassName="btn btn-success"
+	onChange={(value)=>console.log("new int value is: " + value)}
+		displayFormat={(value)=>numeral(value).format("0,0.00")}/>
+React.render(widget, document.getElementById("container"));
+```
+Too see full sample take a look at <a href="demo.js">Demo sample</a></p>
+
+You can click <a href="https://cdn.rawgit.com/dbencic/inline-edit/master/demo.html">Demo html page</a> here to see **example in action.**
+Basically, component has 2 modes '*display*' in which values is only displayed (can be also formatted),
+and *edit*, when value can be edited in textbox.
+
+It is also possible to style the component in both modes by providing *displayModeClassName* and *editModeClassName*
