@@ -2,8 +2,7 @@ import InlineEdit, {intParser, floatParser, emailParser, genericParser} from "./
 import React from "react";
 import numeral from "numeral";
 
-var widget = 
-(<table className="table table-striped">
+var widget = (<table className="table table-striped">
 	<tbody>
 		<tr>
 			<th>Input value type</th>
