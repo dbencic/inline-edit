@@ -10,10 +10,10 @@ import InlineEdit, {intParser, floatParser, emailParser, genericParser} from "./
 		displayFormat={(value)=>numeral(value).format("0,0.00")}/>
 React.render(widget, document.getElementById("container"));
 ```
-Too see full sample take a look at <a href="demo.js">Demo sample</a></p>
 
 You can click <a href="https://rawgit.com/dbencic/inline-edit/master/demo.html">Demo html page</a> here to see **example in action.**
-Basically, component has 2 modes '*display*' in which values is only displayed (can be also formatted),
+
+For sample code take a look at <a href="demo.js">Demo sample</a></p>. Basically, component has 2 modes '*display*' in which values is only displayed (can be also formatted),
 and *edit*, when value can be edited in textbox.
 
 It is also possible to style the component in both modes by providing *displayModeClassName* and *editModeClassName*
