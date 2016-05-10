@@ -1,5 +1,6 @@
 import InlineEdit, {intParser, floatParser, emailParser, genericParser} from "./index";
 import React from "react";
+import ReactDOM from "react-dom";
 import numeral from "numeral";
 
 var widget = (<table className="table table-striped">
@@ -38,4 +39,4 @@ var widget = (<table className="table table-striped">
 
 </table>);
 
-React.render(widget, document.getElementById("container"));
+ReactDOM.render(widget, document.getElementById("container"));
