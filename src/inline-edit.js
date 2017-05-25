@@ -44,7 +44,7 @@ class InlineEdit extends Component {
 		if (this.state.error) {
 			iconClassName = "glyphicon glyphicon-remove-circle text-danger";
 		}
-		let icon = <i className={iconClassName} ariaHidden="true" onClick={()=>this.iconClicked()} />;
+		let icon = <i className={iconClassName} onClick={()=>this.iconClicked()} />;
 		return icon;
 	}
 
@@ -104,6 +104,6 @@ InlineEdit.propTypes = {
 	displayFormat: React.PropTypes.func,
 	displayModeClassName: React.PropTypes.string,
 	editModeClassName: React.PropTypes.string
-}
+};
 
 export default InlineEdit;
